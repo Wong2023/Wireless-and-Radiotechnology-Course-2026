@@ -26,3 +26,40 @@ How to use
 Run the publisher or socket simulator to send sample data, then start the appropriate subscriber to receive alerts or readings. Use `mqtt_publisher.py` with an MQTT broker (e.g., Mosquitto) for MQTT flows, or use `socket_sensor.py`/`socket_server.py` for direct socket examples.
 
 
++------------------+
+|  Sensor Device   |
+|  (socket_sensor) |
++------------------+
+          |
+          | TCP Socket
+          v
++------------------+
+|   Edge Server    |
+|  (socket_server) |
++------------------+
+          |
+          | MQTT Publish
+          v
++------------------+
+|   MQTT Broker    |
+|   broker.emqx.io |
++------------------+
+          |
+          | MQTT Subscribe
+          v
++------------------+
+| Cloud Subscriber |
+| (mqtt_subscriber)|
++------------------+
+
+
+IP Addresses Used
+Device	IP Address	Role
+Laptop 1	172.20.10.3	Edge Server
+Laptop 2	172.20.10.9	Sensor / Publisher
+MQTT Broker	broker.emqx.io	Public MQTT Broker
+
+MQTT Topic Used
+arsenii/iot/temperature
+
+This topic is used to publish temperature sensor data from the edge device to the MQTT broker and receive it on the cloud subscriber.
