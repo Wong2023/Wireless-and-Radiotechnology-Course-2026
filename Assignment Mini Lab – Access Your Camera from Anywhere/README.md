@@ -45,3 +45,4 @@ The repository includes screenshots showing:
 * ngrok running in the terminal
 * the generated public URL
 * the video stream opened from another device
+* the screenshot from the VSC with running code
